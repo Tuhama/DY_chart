@@ -2,19 +2,19 @@
 import PlainChart from "./PlainChart";
 
 
-class T_RH_Chart extends PlainChart
+class GLW_GSW_Chart extends PlainChart
 {
     constructor(props) {
         super(props);
         this.options = {
               yAxis: [{ //--- Primary yAxis
                     title: {
-                        text: 'Temperature'
+                        text: 'Longwave Radiation Flux  (W/m^2)'
                     }
                         },
                         { //--- Secondary yAxis
                     title: {
-                        text: 'Relative Humidity (%)'
+                        text: 'Shortwave Radiation Flux  (W/m^2)'
                     },
                     opposite: true
                         }
@@ -35,4 +35,4 @@ class T_RH_Chart extends PlainChart
 }
 
 
-export default T_RH_Chart;
+export default GLW_GSW_Chart;

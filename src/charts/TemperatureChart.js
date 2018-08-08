@@ -1,6 +1,6 @@
 
 import PlainChart from "./PlainChart";
-import Highcharts from 'highcharts';
+
 
 class TemperatureChart extends PlainChart
 {
@@ -10,7 +10,7 @@ class TemperatureChart extends PlainChart
 
             yAxis: {
                 title: {
-                    text: '',
+                    text: 'Temperature (C)',
                 },
             },
 

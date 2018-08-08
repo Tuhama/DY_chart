@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import './App.css';
 import TemperatureChart from "./charts/TemperatureChart";
 import T_RH_Chart from "./charts/T_RH_Chart";
+import Press_QV_Chart from "./charts/Press_QV_Chart";
+import GLW_GSW_Chart from "./charts/GLW_GSW_Chart";
 
 
 class App extends Component {
@@ -231,15 +233,21 @@ class App extends Component {
 
         let t_data = [];
         let rh_data = [];
-
-
+        let p_data = [];
+        let qv_data = [];
+        let glw_data = [];
+        let gsw_data = [];
         rawdata.forEach(obj => {
-            t_data.push([(obj.UnixTime * 1000), obj.T])
-        });
-        rawdata.forEach(obj => {
-            rh_data.push([(obj.UnixTime * 1000), obj.RH])
-        });
 
+            let time = (obj.UnixTime * 1000);
+
+            t_data.push([time, obj.T]);
+            rh_data.push([time, obj.RH]);
+            p_data.push([time, obj.Press]);
+            qv_data.push([time, obj.QV]);
+            glw_data.push([time, obj.GLW]);
+            gsw_data.push([time, obj.GSW]);
+        });
 
         return (
 
@@ -247,6 +255,10 @@ class App extends Component {
                 <TemperatureChart data={t_data} city={'DAROUS'}/>
 
                 <T_RH_Chart data1={t_data} data2={rh_data} city={'DAROUS'}/>
+
+                <Press_QV_Chart data1={p_data} data2={qv_data} city={'DAROUS'}/>
+
+                <GLW_GSW_Chart data1={glw_data} data2={gsw_data} city={'DAROUS'}/>
             </div>
         );
     }
