@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import './App.css';
 import TemperatureChart from "./charts/TemperatureChart";
 import T_RH_Chart from "./charts/T_RH_Chart";
 import Press_QV_Chart from "./charts/Press_QV_Chart";
 import GLW_GSW_Chart from "./charts/GLW_GSW_Chart";
+
+import MySideBar from "./components_ui/MySidBar"
 
 
 class App extends Component {
@@ -251,14 +253,18 @@ class App extends Component {
 
         return (
 
+
             <div className="App">
-                <TemperatureChart data={t_data} city={'DAROUS'}/>
+                <div>
+                    <TemperatureChart data={t_data} city={'DAROUS'}/>
 
-                <T_RH_Chart data1={t_data} data2={rh_data} city={'DAROUS'}/>
+                    <T_RH_Chart data1={t_data} data2={rh_data} city={'DAROUS'}/>
 
-                <Press_QV_Chart data1={p_data} data2={qv_data} city={'DAROUS'}/>
+                    <Press_QV_Chart data1={p_data} data2={qv_data} city={'DAROUS'}/>
 
-                <GLW_GSW_Chart data1={glw_data} data2={gsw_data} city={'DAROUS'}/>
+                    <GLW_GSW_Chart data1={glw_data} data2={gsw_data} city={'DAROUS'}/>
+                </div>
+                <MySideBar/>
             </div>
         );
     }
